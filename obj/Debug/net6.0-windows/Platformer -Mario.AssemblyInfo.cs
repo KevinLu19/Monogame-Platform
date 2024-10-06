@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Platformer -Mario")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19a8e59227d0919399436476fa5cfe95e6d736d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Platformer -Mario")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Platformer -Mario")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

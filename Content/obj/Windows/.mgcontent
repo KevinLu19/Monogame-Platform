@@ -4,9 +4,13 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Idle-Sheet.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/player.png</File>
+    <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Run-Sheet.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
