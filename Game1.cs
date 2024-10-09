@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Platformer_Mario.Managers;
+using System.Collections.Generic;
 
 namespace Platformer__Mario;
 public class Game1 : Game
@@ -12,6 +12,14 @@ public class Game1 : Game
 
 	// Player sprite class.
 	private Player _player;
+
+	// Pre-load all player animation
+	private Texture2D _idle_sheet;
+	private Texture2D _run_right_sheet;
+	private Texture2D _dead_sheet;
+	private Texture2D _jump_all_sheet;
+	private Texture2D _run_left_sheet;
+	private Texture2D _fall_sheet;
 
 
 	public Game1()
@@ -45,10 +53,29 @@ public class Game1 : Game
 		_spriteBatch = new SpriteBatch(GraphicsDevice);
 
 		// TODO: use this.Content to load your game content here
-		var player_sprite = Content.Load<Texture2D>("Run-Sheet"); // Locate player.png at sprite folder.
+
+		// Pre-load all charcter animations into player class.
+		/*List<Texture2D> list_player_animations = new List<Texture2D> 
+		{
+			Content.Load<Texture2D>("Idle-Sheet"),
+			Content.Load<Texture2D>("Run-Left-Sheet"),
+			Content.Load<Texture2D>("Jump-All-Sheet"),
+			Content.Load<Texture2D>("Fall-Sheet"),
+			Content.Load<Texture2D>("Run-Sheet"),
+			Content.Load<Texture2D>("Dead-Sheet"),
+		} ;*/
+
+		_idle_sheet = Content.Load<Texture2D>("Idle-Sheet");
+		_run_left_sheet = Content.Load<Texture2D>("Run-Left-Sheet");
+		_jump_all_sheet = Content.Load<Texture2D>("Jump-All-Sheet");
+		_fall_sheet = Content.Load<Texture2D>("Fall-Sheet");
+		_run_right_sheet = Content.Load<Texture2D>("Run-Sheet");
+		_dead_sheet = Content.Load<Texture2D>("Dead-Sheet");
+
+		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
 		var player_initial_pos = new Vector2(100, 200);                            // Initial position.
 		
-		_player = new Player(player_sprite, player_initial_pos);
+		_player = new Player(_idle_sheet, _run_left_sheet, _jump_all_sheet, _fall_sheet, _run_right_sheet, _dead_sheet, player_initial_pos);
 	}
 
 	protected override void Update(GameTime gameTime)

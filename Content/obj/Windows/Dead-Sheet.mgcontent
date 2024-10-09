@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/player.png</SourceFile>
-  <SourceTime>2019-11-30T12:17:37.5042957-06:00</SourceTime>
-  <DestFile>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/bin/Windows/player.xnb</DestFile>
-  <DestTime>2024-10-03T19:49:10.1084789-05:00</DestTime>
+  <SourceFile>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Dead-Sheet.png</SourceFile>
+  <SourceTime>2022-07-07T20:40:08-05:00</SourceTime>
+  <DestFile>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/bin/Windows/Dead-Sheet.xnb</DestFile>
+  <DestTime>2024-10-06T18:48:31.2739825-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

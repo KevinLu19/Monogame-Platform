@@ -35,6 +35,9 @@ C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -M
 C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\obj\Debug\net6.0-windows\Platformer -Mario.pdb
 C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\obj\Debug\net6.0-windows\Platformer -Mario.genruntimeconfig.cache
 C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\obj\Debug\net6.0-windows\ref\Platformer -Mario.dll
-C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\player.xnb
 C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Idle-Sheet.xnb
 C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Run-Sheet.xnb
+C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Dead-Sheet.xnb
+C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Fall-Sheet.xnb
+C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Jump-All-Sheet.xnb
+C:\Users\Kevin\Desktop\Programming Project\CSharp\repos\GameMaking\Platformer -Mario\Platformer -Mario\bin\Debug\net6.0-windows\Content\Run-Left-Sheet.xnb

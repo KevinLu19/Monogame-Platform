@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Platformer_Mario.Managers;
+using System.Collections.Generic;
 
 namespace Entities.Player;
 
@@ -10,19 +12,40 @@ public class Player
     private Texture2D _player_sprite;
     private Vector2 _player_position;
 
-    private readonly SpriteSheetAnimation _animation;
-    public Player(Texture2D sprite, Vector2 initial_position)
+    private SpriteSheetAnimation _animation;
+    private Texture2D _player_animation_state;              // Used for game state.
+
+    private List<Texture2D> _list_player_animation = new();
+
+    // Variable for different states pre-loaded.
+    private Texture2D _idle_state;
+    private Texture2D _run_left_state;
+    private Texture2D _jump_state;
+    private Texture2D _fall_state;
+    private Texture2D _run_right_state;
+    private Texture2D _dead_state;
+	public Player(Texture2D idle, Texture2D run_left, Texture2D jump, Texture2D fall, Texture2D run_right, 
+        Texture2D dead, Vector2 initial_position)
     {
-        _player_sprite = sprite;
+        _idle_state = idle;
+        _run_left_state = run_left;
+        _jump_state = jump;
+        _fall_state = fall;
+        _run_right_state = run_right;
+        _dead_state = dead;
 
-        // For now, set initial position to 100, 200
-        _player_position = initial_position;
+		// Initial state for the character is in idle mode or if no input it being pressed -> idle state.
+		_animation = new(_idle_state, 4, 0.1f);
 
-        // Call the animation class.
-        // Test animation class. Testing idle-sheet.png animation. Need to change based on different animation state.
-        _animation = new(_player_sprite, 8, 0.1f);
+		//_list_player_animation = sprite;
+
+		// _player_sprite = sprite;
+
+		// For now, set initial position to 100, 200
+		_player_position = initial_position;
     }
     
+
     public void Update(GameTime game_time)
     {
         _animation.Update(game_time);
@@ -31,21 +54,40 @@ public class Player
     // Controls moving the player sprite. - Movement update function.
     public void Movement()
     {
+       /* 
+            States:
+            Idle state if no movement button is pressed. Run sprite sheet used for either left or right movement. 
+            Jump sprite used for jumping and fall for fall movement.
+        */
+
         KeyboardState kb_state = Keyboard.GetState();
 
-        // Move sprite based on keyboard presses.
-        if (kb_state.IsKeyDown(Keys.Up))
+		
+
+		// Move sprite based on keyboard presses.
+		if (kb_state.IsKeyDown(Keys.Up))
+        {
+            
             _player_position.Y -= 10;               // Temporary for jump. Will fix this when implementing jump to get burst of movement.
+		}
+            
 		
         if (kb_state.IsKeyDown(Keys.Down))
-			_player_position.Y += 10;               // Temporary for fall. There is no jump down. Will fix this when gravity is implemented.
+        {
+            _player_position.Y += 10;               // Temporary for fall. There is no jump down. Will fix this when gravity is implemented.
+		}
 		
         if (kb_state.IsKeyDown(Keys.Left))
+        {
+            
 			_player_position.X -= 10;               // Move left at fixed speed. Will tweak this.
+		}
 		
         if (kb_state.IsKeyDown(Keys.Right))
-			_player_position.X += 10;               // Move right at fixed speed. Will tweak this.
-
+        {
+            
+            _player_position.X += 10;               // Move right at fixed speed. Will tweak this.
+		}
 	}
 
 	public void Draw(SpriteBatch sprite_batch)
