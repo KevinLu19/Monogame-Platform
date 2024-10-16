@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Platformer_Mario.Managers;
@@ -61,8 +60,6 @@ public class Player
         */
 
         KeyboardState kb_state = Keyboard.GetState();
-
-		
 
 		// Move sprite based on keyboard presses.
 		if (kb_state.IsKeyDown(Keys.Up))
