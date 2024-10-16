@@ -404,3 +404,4 @@ actions-runner/*
 .github/*
 **.ico
 bin/*
+obj/*
