@@ -1,0 +1,10 @@
+﻿---
+name: Checkout
+on:
+  workflow_dispatch: null
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v3
