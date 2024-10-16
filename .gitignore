@@ -401,7 +401,7 @@ FodyWeavers.xsd
 actions-runner/*
 
 .config/*
-.github/*
 **.ico
 bin/*
 obj/*
+app.manifest
