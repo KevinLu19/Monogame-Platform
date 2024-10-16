@@ -2,7 +2,7 @@
 name: Linter
 on:
 # Will run this runner when an action is made through Github
-  workflow_dispatch: null
+  workflow_dispatch: 
 jobs:
   super-lint:
     name: Lint incoming code
