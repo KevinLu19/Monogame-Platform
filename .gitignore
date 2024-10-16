@@ -399,3 +399,8 @@ FodyWeavers.xsd
 
 # remove the runner file.
 actions-runner/*
+
+.config/*
+.github/*
+**.ico
+bin/*
