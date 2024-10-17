@@ -400,7 +400,6 @@ FodyWeavers.xsd
 # remove the runner file.
 actions-runner/*
 
-.config/*
 **.ico
 bin/*
 obj/*
