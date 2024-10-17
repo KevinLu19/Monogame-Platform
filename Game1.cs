@@ -2,9 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
+using Platformer_Mario.Managers;
 
 namespace Platformer__Mario;
+
 public class Game1 : Game
 {
 	private GraphicsDeviceManager _graphics;
@@ -54,17 +55,7 @@ public class Game1 : Game
 
 		// TODO: use this.Content to load your game content here
 
-		// Pre-load all charcter animations into player class.
-		/*List<Texture2D> list_player_animations = new List<Texture2D> 
-		{
-			Content.Load<Texture2D>("Idle-Sheet"),
-			Content.Load<Texture2D>("Run-Left-Sheet"),
-			Content.Load<Texture2D>("Jump-All-Sheet"),
-			Content.Load<Texture2D>("Fall-Sheet"),
-			Content.Load<Texture2D>("Run-Sheet"),
-			Content.Load<Texture2D>("Dead-Sheet"),
-		} ;*/
-
+		// Load all the textures for different animation.
 		_idle_sheet = Content.Load<Texture2D>("Idle-Sheet");
 		_run_left_sheet = Content.Load<Texture2D>("Run-Left-Sheet");
 		_jump_all_sheet = Content.Load<Texture2D>("Jump-All-Sheet");
@@ -72,10 +63,19 @@ public class Game1 : Game
 		_run_right_sheet = Content.Load<Texture2D>("Run-Sheet");
 		_dead_sheet = Content.Load<Texture2D>("Dead-Sheet");
 
+		// Create animation based on texture
+		SpriteSheetAnimation idle = new SpriteSheetAnimation(_idle_sheet, 4, 0.1f);
+		SpriteSheetAnimation run_left = new SpriteSheetAnimation(_run_left_sheet, 8, 0.1f);
+		SpriteSheetAnimation jump = new SpriteSheetAnimation(_jump_all_sheet, 15, 0.1f);
+		SpriteSheetAnimation fall = new SpriteSheetAnimation(_fall_sheet, 3, 0.1f);
+		SpriteSheetAnimation run_right = new SpriteSheetAnimation(_run_right_sheet, 8, 0.1f);
+		SpriteSheetAnimation dead = new SpriteSheetAnimation(_dead_sheet, 8, 0.1f);
+
+
 		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
 		var player_initial_pos = new Vector2(100, 200);                            // Initial position.
 		
-		_player = new Player(_idle_sheet, _run_left_sheet, _jump_all_sheet, _fall_sheet, _run_right_sheet, _dead_sheet, player_initial_pos);
+		_player = new Player(idle, run_left, jump, fall, run_right, dead, player_initial_pos);
 	}
 
 	protected override void Update(GameTime gameTime)
@@ -84,7 +84,6 @@ public class Game1 : Game
 			Exit();
 
 		// TODO: Add your update logic here
-		_player.Movement();
 		_player.Update(gameTime);
 
 		base.Update(gameTime);
