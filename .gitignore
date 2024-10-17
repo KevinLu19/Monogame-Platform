@@ -404,4 +404,3 @@ actions-runner/*
 **.ico
 bin/*
 obj/*
-app.manifest
