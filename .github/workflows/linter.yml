@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted            # Runs on machine labeled self-hosted
     steps:
       - name: Checkout code
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
       - name: Runs super linter
         uses: super-linter/super-linter@v7.1.0      # This is the latest version for super linter
         env:
