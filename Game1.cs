@@ -2,9 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
+using Platformer_Mario.Managers;
 
 namespace Platformer__Mario;
+
 public class Game1 : Game
 {
 	private GraphicsDeviceManager _graphics;
@@ -20,7 +21,10 @@ public class Game1 : Game
 	private Texture2D _jump_all_sheet;
 	private Texture2D _run_left_sheet;
 	private Texture2D _fall_sheet;
+	private Texture2D _attack_right;
 
+	// Map sprite
+	private Texture2D _map;
 
 	public Game1()
 	{
@@ -39,8 +43,8 @@ public class Game1 : Game
 		_graphics.PreferredBackBufferHeight = 768;*/
 
 		// Smaller reso size: 640 x 480
-		_graphics.PreferredBackBufferWidth = 640;
-		_graphics.PreferredBackBufferHeight = 480;
+		_graphics.PreferredBackBufferWidth = 800;
+		_graphics.PreferredBackBufferHeight = 600;
 
 		_graphics.ApplyChanges();
 
@@ -54,28 +58,31 @@ public class Game1 : Game
 
 		// TODO: use this.Content to load your game content here
 
-		// Pre-load all charcter animations into player class.
-		/*List<Texture2D> list_player_animations = new List<Texture2D> 
-		{
-			Content.Load<Texture2D>("Idle-Sheet"),
-			Content.Load<Texture2D>("Run-Left-Sheet"),
-			Content.Load<Texture2D>("Jump-All-Sheet"),
-			Content.Load<Texture2D>("Fall-Sheet"),
-			Content.Load<Texture2D>("Run-Sheet"),
-			Content.Load<Texture2D>("Dead-Sheet"),
-		} ;*/
-
+		// Load all the textures for different animation.
 		_idle_sheet = Content.Load<Texture2D>("Idle-Sheet");
 		_run_left_sheet = Content.Load<Texture2D>("Run-Left-Sheet");
 		_jump_all_sheet = Content.Load<Texture2D>("Jump-All-Sheet");
 		_fall_sheet = Content.Load<Texture2D>("Fall-Sheet");
 		_run_right_sheet = Content.Load<Texture2D>("Run-Sheet");
 		_dead_sheet = Content.Load<Texture2D>("Dead-Sheet");
+		_attack_right = Content.Load<Texture2D>("Attack-right");
+
+		// Create animation based on texture
+		SpriteSheetAnimation idle = new SpriteSheetAnimation(_idle_sheet, 4, 0.1f);
+		SpriteSheetAnimation run_left = new SpriteSheetAnimation(_run_left_sheet, 8, 0.1f);
+		SpriteSheetAnimation jump = new SpriteSheetAnimation(_jump_all_sheet, 15, 0.1f);
+		SpriteSheetAnimation fall = new SpriteSheetAnimation(_fall_sheet, 3, 0.1f);
+		SpriteSheetAnimation run_right = new SpriteSheetAnimation(_run_right_sheet, 8, 0.1f);
+		SpriteSheetAnimation dead = new SpriteSheetAnimation(_dead_sheet, 8, 0.1f);
+		SpriteSheetAnimation attack_right = new SpriteSheetAnimation(_attack_right, 8, 0.1f);
 
 		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
 		var player_initial_pos = new Vector2(100, 200);                            // Initial position.
 		
-		_player = new Player(_idle_sheet, _run_left_sheet, _jump_all_sheet, _fall_sheet, _run_right_sheet, _dead_sheet, player_initial_pos);
+		_player = new Player(idle, run_left, jump, fall, run_right, dead, attack_right,player_initial_pos);
+
+		// Map texture
+		_map = Content.Load<Texture2D>("map");
 	}
 
 	protected override void Update(GameTime gameTime)
@@ -84,7 +91,6 @@ public class Game1 : Game
 			Exit();
 
 		// TODO: Add your update logic here
-		_player.Movement();
 		_player.Update(gameTime);
 
 		base.Update(gameTime);
@@ -96,6 +102,9 @@ public class Game1 : Game
 
 		// TODO: Add your drawing code here
 		_spriteBatch.Begin();
+
+		// Draws the map
+		_spriteBatch.Draw(_map, new Vector2(0, 0), Color.White);
 
 		// Draw player class.
 		_player.Draw(_spriteBatch);

@@ -4,14 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Attack-right.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Dead-Sheet.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Fall-Sheet.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Idle-Sheet.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Jump-All-Sheet.png</File>
+    <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/map.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Run-Left-Sheet.png</File>
     <File>C:/Users/Kevin/Desktop/Programming Project/CSharp/repos/GameMaking/Platformer -Mario/Platformer -Mario/Content/Run-Sheet.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
