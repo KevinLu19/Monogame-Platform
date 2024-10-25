@@ -21,7 +21,10 @@ public class Game1 : Game
 	private Texture2D _jump_all_sheet;
 	private Texture2D _run_left_sheet;
 	private Texture2D _fall_sheet;
+	private Texture2D _attack_right;
 
+	// Map sprite
+	private Texture2D _map;
 
 	public Game1()
 	{
@@ -40,8 +43,8 @@ public class Game1 : Game
 		_graphics.PreferredBackBufferHeight = 768;*/
 
 		// Smaller reso size: 640 x 480
-		_graphics.PreferredBackBufferWidth = 640;
-		_graphics.PreferredBackBufferHeight = 480;
+		_graphics.PreferredBackBufferWidth = 800;
+		_graphics.PreferredBackBufferHeight = 600;
 
 		_graphics.ApplyChanges();
 
@@ -62,6 +65,7 @@ public class Game1 : Game
 		_fall_sheet = Content.Load<Texture2D>("Fall-Sheet");
 		_run_right_sheet = Content.Load<Texture2D>("Run-Sheet");
 		_dead_sheet = Content.Load<Texture2D>("Dead-Sheet");
+		_attack_right = Content.Load<Texture2D>("Attack-right");
 
 		// Create animation based on texture
 		SpriteSheetAnimation idle = new SpriteSheetAnimation(_idle_sheet, 4, 0.1f);
@@ -70,12 +74,15 @@ public class Game1 : Game
 		SpriteSheetAnimation fall = new SpriteSheetAnimation(_fall_sheet, 3, 0.1f);
 		SpriteSheetAnimation run_right = new SpriteSheetAnimation(_run_right_sheet, 8, 0.1f);
 		SpriteSheetAnimation dead = new SpriteSheetAnimation(_dead_sheet, 8, 0.1f);
-
+		SpriteSheetAnimation attack_right = new SpriteSheetAnimation(_attack_right, 8, 0.1f);
 
 		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
 		var player_initial_pos = new Vector2(100, 200);                            // Initial position.
 		
-		_player = new Player(idle, run_left, jump, fall, run_right, dead, player_initial_pos);
+		_player = new Player(idle, run_left, jump, fall, run_right, dead, attack_right,player_initial_pos);
+
+		// Map texture
+		_map = Content.Load<Texture2D>("map");
 	}
 
 	protected override void Update(GameTime gameTime)
@@ -95,6 +102,9 @@ public class Game1 : Game
 
 		// TODO: Add your drawing code here
 		_spriteBatch.Begin();
+
+		// Draws the map
+		_spriteBatch.Draw(_map, new Vector2(0, 0), Color.White);
 
 		// Draw player class.
 		_player.Draw(_spriteBatch);

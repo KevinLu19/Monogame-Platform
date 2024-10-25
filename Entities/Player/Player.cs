@@ -24,13 +24,14 @@ public class Player
     private SpriteSheetAnimation _fall_state;
     private SpriteSheetAnimation _run_right_state;
     private SpriteSheetAnimation _dead_state;
+	private SpriteSheetAnimation _attack_right_state;
 
     private SpriteSheetAnimation _current_animation;
     // All the possible character animation states
     private AnimationState _current_state;
 
     public Player(SpriteSheetAnimation idle, SpriteSheetAnimation run_left, SpriteSheetAnimation jump, SpriteSheetAnimation fall, SpriteSheetAnimation run_right,
-		SpriteSheetAnimation dead, Vector2 initial_position)
+		SpriteSheetAnimation dead, SpriteSheetAnimation attack_right, Vector2 initial_position)
     {
         _idle_state = idle;
         _run_left_state = run_left;
@@ -38,6 +39,7 @@ public class Player
         _fall_state = fall;
         _run_right_state = run_right;
         _dead_state = dead;
+		_attack_right_state = attack_right;
 
         // Default state for character.
         _current_state = AnimationState.Idle;
@@ -75,14 +77,14 @@ public class Player
 		{
 			_current_state = AnimationState.Run_Left;
 			_current_animation = _run_left_state;
-			_player_position.X -= 10;               // Move left at fixed speed. Will tweak this.
+			_player_position.X -= 5;               // Move left at fixed speed. Will tweak this.
 		}
 
 		else if (kb_state.IsKeyDown(Keys.Right))
 		{
 			_current_state = AnimationState.Run_Right;
 			_current_animation = _run_right_state;
-			_player_position.X += 10;               // Move right at fixed speed. Will tweak this.
+			_player_position.X += 5;               // Move right at fixed speed. Will tweak this.
 		}
 		else
 		{

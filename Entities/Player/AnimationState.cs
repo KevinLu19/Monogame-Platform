@@ -13,5 +13,6 @@ public enum AnimationState
 	Run_Left,
 	Jump,
 	Fall,
-	Dead
+	Dead,
+	Attack
 }
