@@ -23,6 +23,13 @@ public class Game1 : Game
 	private Texture2D _fall_sheet;
 	private Texture2D _attack_right;
 
+	// Resolution size - Static
+	public static int _screen_height = 600;
+	public static int _screen_width = 800;
+
+	// Player camera
+	private Camera _camera;
+
 	// Map sprite
 	private Texture2D _map;
 
@@ -43,10 +50,13 @@ public class Game1 : Game
 		_graphics.PreferredBackBufferHeight = 768;*/
 
 		// Smaller reso size: 640 x 480
-		_graphics.PreferredBackBufferWidth = 800;
-		_graphics.PreferredBackBufferHeight = 600;
+		_screen_width = _graphics.PreferredBackBufferWidth;
+		_screen_height = _graphics.PreferredBackBufferHeight;
 
 		_graphics.ApplyChanges();
+
+		// Initialize camera with screen dimension.
+		_camera = new Camera(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
 		base.Initialize();
 	}
@@ -93,6 +103,9 @@ public class Game1 : Game
 		// TODO: Add your update logic here
 		_player.Update(gameTime);
 
+		// Update camera
+		_camera.Follow(_player.player_position);
+
 		base.Update(gameTime);
 	}
 
@@ -101,7 +114,7 @@ public class Game1 : Game
 		GraphicsDevice.Clear(Color.CornflowerBlue);
 
 		// TODO: Add your drawing code here
-		_spriteBatch.Begin();
+		_spriteBatch.Begin(transformMatrix: _camera.Transform);
 
 		// Draws the map
 		_spriteBatch.Draw(_map, new Vector2(0, 0), Color.White);
