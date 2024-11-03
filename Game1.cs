@@ -25,7 +25,7 @@ public class Game1 : Game
 
 	// Resolution size - Static
 	public static int _screen_height = 600;
-	public static int _screen_width = 800;
+	public static int _screen_width = 900;
 
 	// Player camera
 	private Camera _camera;
@@ -49,14 +49,13 @@ public class Game1 : Game
 		/*_graphics.PreferredBackBufferWidth = 1366;
 		_graphics.PreferredBackBufferHeight = 768;*/
 
-		// Smaller reso size: 640 x 480
-		_screen_width = _graphics.PreferredBackBufferWidth;
-		_screen_height = _graphics.PreferredBackBufferHeight;
+		_graphics.PreferredBackBufferWidth = _screen_width;
+		_graphics.PreferredBackBufferHeight = _screen_height;
 
 		_graphics.ApplyChanges();
 
 		// Initialize camera with screen dimension.
-		_camera = new Camera(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
+		_camera = new Camera(_screen_width, _screen_height);
 
 		base.Initialize();
 	}
@@ -117,7 +116,8 @@ public class Game1 : Game
 		_spriteBatch.Begin(transformMatrix: _camera.Transform);
 
 		// Draws the map
-		_spriteBatch.Draw(_map, new Vector2(0, 0), Color.White);
+		// 0, -400 starts at the platform at the bottom.
+		_spriteBatch.Draw(_map, new Vector2(0, -400), Color.White);
 
 		// Draw player class.
 		_player.Draw(_spriteBatch);
