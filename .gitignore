@@ -400,6 +400,10 @@ FodyWeavers.xsd
 # remove the runner file.
 actions-runner/*
 
+# Remove tasks file.
+Endless_task.txt
+*.txt
+
 **.ico
 bin/*
 obj/*
