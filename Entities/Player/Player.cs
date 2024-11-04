@@ -25,7 +25,7 @@ public class Player : Sprite
     private SpriteSheetAnimation _current_animation;
 
     // All the possible character animation states
-    private AnimationState _current_state;
+    public AnimationState _current_state;
 
     public Player(SpriteSheetAnimation idle, SpriteSheetAnimation run_left, SpriteSheetAnimation jump, SpriteSheetAnimation fall, SpriteSheetAnimation run_right,
 		SpriteSheetAnimation dead, SpriteSheetAnimation attack_right, Vector2 initial_position)
@@ -44,12 +44,12 @@ public class Player : Sprite
 
 		// For now, set initial position to 100, 200
 		player_position = initial_position;
+
     }
 
-	public void Update(GameTime game_time)
+	public override void Update(GameTime game_time)
 	{
 		// Movement Function.
-
 		// Need to default back to idle state when no keyboard movement button is pressed.
 
 		KeyboardState kb_state = Keyboard.GetState();
