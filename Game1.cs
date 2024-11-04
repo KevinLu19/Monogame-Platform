@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Platformer_Mario.Entities.Player;
 using Platformer_Mario.Managers;
 
 namespace Platformer__Mario;
@@ -13,6 +14,10 @@ public class Game1 : Game
 
 	// Player sprite class.
 	private Player _player;
+
+	// Heart Class - Lives
+	private Heart _heart;
+	private Texture2D _heart_texture;
 
 	// Pre-load all player animation
 	private Texture2D _idle_sheet;
@@ -45,9 +50,6 @@ public class Game1 : Game
 	{
 		// TODO: Add your initialization logic here
 		_graphics.IsFullScreen = false;
-		// Reso size: 1366 x 768 - Average laptop size.
-		/*_graphics.PreferredBackBufferWidth = 1366;
-		_graphics.PreferredBackBufferHeight = 768;*/
 
 		_graphics.PreferredBackBufferWidth = _screen_width;
 		_graphics.PreferredBackBufferHeight = _screen_height;
@@ -85,13 +87,18 @@ public class Game1 : Game
 		SpriteSheetAnimation dead = new SpriteSheetAnimation(_dead_sheet, 8, 0.1f);
 		SpriteSheetAnimation attack_right = new SpriteSheetAnimation(_attack_right, 8, 0.1f);
 
-		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
-		var player_initial_pos = new Vector2(100, 200);                            // Initial position.
-		
-		_player = new Player(idle, run_left, jump, fall, run_right, dead, attack_right,player_initial_pos);
+		// Heart - Num of lives
+		_heart_texture = Content.Load<Texture2D>("Heart");
+		SpriteSheetAnimation heart_animation = new SpriteSheetAnimation(_heart_texture, 8, 0.1f);
+		_heart = new Heart(heart_animation, _heart_texture);
 
 		// Map texture
 		_map = Content.Load<Texture2D>("map");
+
+		// var player_sprite = Content.Load<Texture2D>("Run-Sheet");					// Locate player.png at sprite folder.
+		var player_initial_pos = new Vector2(100, 200);									// Initial position.
+		
+		_player = new Player(idle, run_left, jump, fall, run_right, dead, attack_right,player_initial_pos);
 	}
 
 	protected override void Update(GameTime gameTime)
@@ -101,6 +108,9 @@ public class Game1 : Game
 
 		// TODO: Add your update logic here
 		_player.Update(gameTime);
+
+		// Heart - Lives update for animation
+		_heart.Update(gameTime);
 
 		// Update camera
 		_camera.Follow(_player.player_position);
@@ -118,6 +128,9 @@ public class Game1 : Game
 		// Draws the map
 		// 0, -400 starts at the platform at the bottom.
 		_spriteBatch.Draw(_map, new Vector2(0, -400), Color.White);
+
+		// Draw Heart - Lives
+		_heart.Draw(_spriteBatch);
 
 		// Draw player class.
 		_player.Draw(_spriteBatch);

@@ -30,6 +30,16 @@ public class SpriteSheetAnimation
         }
     }
 
+    public int GetSpriteWidth()
+    {
+        return _texture.Width;
+    }
+
+    public int GetSpriteHeight() 
+    {
+        return _texture.Height;
+    }
+
 	public void StopAnimation()
 	{
 		_active = false;
