@@ -27,6 +27,8 @@ public class Player : Sprite
     // All the possible character animation states
     public AnimationState _current_state;
 
+	public int player_scale = 1;
+
     public Player(SpriteSheetAnimation idle, SpriteSheetAnimation run_left, SpriteSheetAnimation jump, SpriteSheetAnimation fall, SpriteSheetAnimation run_right,
 		SpriteSheetAnimation dead, SpriteSheetAnimation attack_right, Vector2 initial_position)
     {
@@ -44,7 +46,6 @@ public class Player : Sprite
 
 		// For now, set initial position to 100, 200
 		player_position = initial_position;
-
     }
 
 	public override void Update(GameTime game_time)
@@ -97,7 +98,7 @@ public class Player : Sprite
 		// Draws the entire sprite sheet for testing purposes.
 		// sprite_batch.Draw(_player_sprite, _player_position, Color.White);
 
-		_current_animation.Draw(sprite_batch, player_position);
+		_current_animation.Draw(sprite_batch, player_position, player_scale);
 	}
 
 }

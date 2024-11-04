@@ -29,6 +29,6 @@ public class Heart : Sprite
 
     public void Draw(SpriteBatch sprite_batch)
     {
-        _animation.Draw(sprite_batch, _heart_position);
+        _animation.Draw(sprite_batch, _heart_position, 2);
     }
 }

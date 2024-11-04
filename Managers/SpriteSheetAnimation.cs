@@ -70,8 +70,8 @@ public class SpriteSheetAnimation
         }
     }
 
-    public void Draw(SpriteBatch sprite_batch, Vector2 pos)
+    public void Draw(SpriteBatch sprite_batch, Vector2 pos, int scale)
     {
-        sprite_batch.Draw(_texture, pos, _list_source_rectangle[_frame], Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 1);
+        sprite_batch.Draw(_texture, pos, _list_source_rectangle[_frame], Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1);
     }
 }
