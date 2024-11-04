@@ -89,8 +89,8 @@ public class Game1 : Game
 
 		// Heart - Num of lives
 		_heart_texture = Content.Load<Texture2D>("Heart");
-		SpriteSheetAnimation heart_animation = new SpriteSheetAnimation(_heart_texture, 8, 0.1f);
-		_heart = new Heart(heart_animation, _heart_texture);
+		SpriteSheetAnimation heart_anim = new SpriteSheetAnimation(_heart_texture, 8, 0.1f);
+		_heart = new Heart(heart_anim, _heart_texture);
 
 		// Map texture
 		_map = Content.Load<Texture2D>("map");

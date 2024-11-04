@@ -12,23 +12,23 @@ public class Heart : Sprite
 
     public Texture2D heart_texture;
 
-    public Heart(SpriteSheetAnimation heart_animation, Texture2D heart_text)
+    public Heart(SpriteSheetAnimation heart_anim ,Texture2D heart_text)
     {
         heart_texture = heart_text;
         _max_lives = 5;
 
-        _heart_position = new Vector2(100, 0);
+        _heart_position = new Vector2(0, 0);
 
-        _animation = heart_animation;
+        _animation = heart_anim;
     }
 
-    public void Update(GameTime game_time)
+    public override void Update(GameTime game_time)
     {
         _animation.Update(game_time);
     }
 
     public void Draw(SpriteBatch sprite_batch)
     {
-        sprite_batch.Draw(heart_texture, _heart_position, Color.White);
+        _animation.Draw(sprite_batch, _heart_position);
     }
 }

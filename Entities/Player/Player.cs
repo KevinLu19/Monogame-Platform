@@ -47,7 +47,7 @@ public class Player : Sprite
 
     }
 
-	public void Update(GameTime game_time)
+	public override void Update(GameTime game_time)
 	{
 		// Movement Function.
 		// Need to default back to idle state when no keyboard movement button is pressed.

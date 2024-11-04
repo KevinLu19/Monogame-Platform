@@ -6,7 +6,6 @@ namespace Platformer_Mario.Managers;
 public class Sprite : Component
 {
     protected Texture2D _texture;
-
     public Vector2 Position { get; set; }
 
 
