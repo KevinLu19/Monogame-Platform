@@ -7,6 +7,8 @@ using Platformer_Mario.Managers;
 
 namespace Platformer__Mario;
 
+// on spawn up, map sprite is outside of preferred window boundary.
+// Main character sprite too small.
 public class Game1 : Game
 {
 	private GraphicsDeviceManager _graphics;
